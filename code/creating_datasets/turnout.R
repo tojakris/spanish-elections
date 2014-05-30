@@ -16,7 +16,9 @@ for (i in 1:nrow(elections)) {
                         election$year, election$month, "_1.xlsx")
     
     election.data <- read.xlsx2(file.name, sheetIndex=1, header=TRUE, startRow=6,
-                               colIndex=1:13, stringsAsFactors=FALSE)
+                               colIndex=1:13, stringsAsFactors=FALSE,
+                               colClasses = c(rep("character", times=5), 
+                                              rep("numeric", times=8)))
     
     colnames(election.data) = c("comunidad", "codigo.provincia","provincia",
                                 "codigo.municipio","municipio", "poblacion", 
